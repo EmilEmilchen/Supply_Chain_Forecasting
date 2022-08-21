@@ -5,8 +5,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns; sns.set(style="ticks", color_codes=True)
 import datetime
 
+import warnings
+from sklearn.exceptions import DataConversionWarning
+warnings.filterwarnings(action='ignore', category=DataConversionWarning)
+
 # Loading datasets
-org_train_dataset = pd.read_csv('~/Documents/Datasets/walmart-store-forecasting/train.csv',sep=',', header=0)
+org_train_dataset = pd.read_csv('/home/emil/Code/deep learning/Supply_Chain_Forecasting/Walmart_Forecasting/train.csv',sep=',', header=0)
 min(org_train_dataset.Date) # 2010-02-05
 max(org_train_dataset.Date) # 2012-10-26
 len(org_train_dataset[org_train_dataset['Weekly_Sales'] < 0]) # 1285 weekly sales below than 0

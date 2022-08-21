@@ -6,7 +6,7 @@ from sklearn.tree import DecisionTreeRegressor
 
 # Training and test set creation
 def import_data():
-    data=pd.read_csv('~/Documents/Demand Forecasting/norway_car_sales.csv')
+    data=pd.read_csv('/home/emil/Code/deep learning/Supply_Chain_Forecasting/Datasets/norway_car_sales.csv')
     data['Period']=data['Year'].astype(str) + "-" +data['Month'].astype(str)
     data['Period']=pd.to_datetime(data['Period']).dt.strftime("%Y-%m")
     df=pd.pivot_table(data=data,values='Quantity',index='Make',columns='Period',aggfunc='sum',fill_value=0)
